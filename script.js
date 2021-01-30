@@ -14,23 +14,35 @@ loginBtn.addEventListener('click', function (event) {
 });
 
 
-// withdraw Ammount
-const withdrawAmmount = document.getElementById('withdraw-ammount').value;
+// withdraw Amount
+const withdrawAmount = document.getElementById('withdraw-amount').value;
 
 //  Deposite Button Event Handler
 let depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function (event) {
-    // deposit Ammount
-    const depositAmount = document.getElementById('deposit-ammount').value;
-    const depositNumber = parseFloat(depositAmount);
+    // deposit Amount
+    const depositAmount = document.getElementById('deposit-amount').value;
+    let depositNumber = parseFloat(depositAmount);
     if(depositNumber.toString() != "NaN" ){
-        console.log(depositNumber);
-        const currentDeposit = document.getElementById('current-deposit').innerText;
-        const currentDepositAmmount = parseFloat(currentDeposit);
-        const totalDeposit = depositNumber + currentDepositAmmount;
+        if(depositNumber < 0){
+            depositNumber = 0;
+        }
         
-        document.getElementById('current-deposit').innerText = totalDeposit;
+        // Update Deposite
+        updateSpanText('current-deposit', depositNumber)
+
+        // Update Balance
+        updateSpanText('current-balance', depositNumber)
     }
 
-    document.getElementById('deposit-ammount').value = "";
+    document.getElementById('deposit-amount').value = "";
 });
+
+
+// update Balance
+function updateSpanText(id, depositNumber){
+    const current = document.getElementById(id).innerText;
+    const currentAmount  = parseFloat(current);
+    const totalAmount = currentAmount + depositNumber;
+    document.getElementById(id).innerText = totalAmount;
+}
