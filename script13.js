@@ -12,24 +12,17 @@ loginBtn.addEventListener('click', function (event) {
 
 
 //  Deposite Button Event Handler
-let depositBtn = document.getElementById('addDeposit');
+const depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function (event) {
     // deposit Amount
-    const depositAmount = document.getElementById('deposit-amount').value;
-    let depositNumber = parseFloat(depositAmount);
-    if (depositNumber.toString() != "NaN") {
-        if (depositNumber < 0) {
-            depositNumber = 0;
-        }
+    const withdrawAmount = getInputNumber('deposit-amount');
 
-        // Update Deposite
-        updateSpanText('current-deposit', depositNumber)
+    // Update Deposite
+    updateSpanText('current-deposit', depositNumber)
 
-        // Update Balance
-        updateSpanText('current-balance', depositNumber)
-    }
+    // Update Balance
+    updateSpanText('current-balance', depositNumber)
 
-    document.getElementById('deposit-amount').value = "";
 });
 
 
@@ -40,12 +33,12 @@ const withdrawBtn = document.getElementById('addWithdraw');
 withdrawBtn.addEventListener('click', function (event) {
     // deposit Amount
     const withdrawAmount = getInputNumber('withdraw-amount');
-        // Update Deposite
-        updateSpanText('current-withdraw', withdrawAmount);
+    // Update Deposite
+    updateSpanText('current-withdraw', withdrawAmount);
 
-        // Update Balance
-        updateSpanText('current-balance', -withdrawAmount);
-        
+    // Update Balance
+    updateSpanText('current-balance', -withdrawAmount);
+
 });
 
 
@@ -58,7 +51,6 @@ function updateSpanText(id, depositNumber) {
 }
 
 //button event handler
-
 function getInputNumber(id) {
     const inputAmount = document.getElementById(id).value;
     let inputNumber = parseFloat(inputAmount);
@@ -66,7 +58,7 @@ function getInputNumber(id) {
         if (inputNumber < 0) {
             inputNumber = 0;
         }
-    } else{
+    } else {
         inputNumber = 0;
     }
     document.getElementById(id).value = "";
