@@ -1,7 +1,3 @@
-// login Area
-const loginArea = document.getElementById('login-area');
-// transation Area
-const transactionArea = document.getElementById('transaction-area');
 
 
 
@@ -9,13 +5,14 @@ const transactionArea = document.getElementById('transaction-area');
 let loginBtn = document.getElementById('login');
 loginBtn.addEventListener('click', function (event) {
     event.preventDefault();
+    // login Area
+    const loginArea = document.getElementById('login-area');
     loginArea.style.display = "none";
+    // transation Area
+    const transactionArea = document.getElementById('transaction-area');
     transactionArea.style.display = "block";
-    console.log("None!");
 });
 
-// deposit Ammount
-const depositAmmount = document.getElementById('deposit-ammount').value;
 
 // withdraw Ammount
 const withdrawAmmount = document.getElementById('withdraw-ammount').value;
@@ -23,5 +20,8 @@ const withdrawAmmount = document.getElementById('withdraw-ammount').value;
 //  Deposite Button Event Handler
 let depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function (event) {
-console.log(depositAmmount);
+    // deposit Ammount
+    const depositAmmount = document.getElementById('deposit-ammount').value;
+
+    console.log(parseFloat(depositAmmount));
 });
