@@ -1,0 +1,18 @@
+#login-area{
+    display: none;
+}
+#transaction-area{
+    /* display: none; */
+}
+.status{
+    margin: 0 20px;
+}
+.balance{
+    background-color: #6610f2;
+}
+.withdraw{
+    background-color: #e2993f;
+}
+.balane{
+    background-color: #dc3545;
+}
