@@ -21,7 +21,16 @@ const withdrawAmmount = document.getElementById('withdraw-ammount').value;
 let depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function (event) {
     // deposit Ammount
-    const depositAmmount = document.getElementById('deposit-ammount').value;
+    const depositAmount = document.getElementById('deposit-ammount').value;
+    const depositNumber = parseFloat(depositAmount);
+    if(depositNumber.toString() != "NaN" ){
+        console.log(depositNumber);
+        const currentDeposit = document.getElementById('current-deposit').innerText;
+        const currentDepositAmmount = parseFloat(currentDeposit);
+        const totalDeposit = depositNumber + currentDepositAmmount;
+        
+        document.getElementById('current-deposit').innerText = totalDeposit;
+    }
 
-    console.log(parseFloat(depositAmmount));
+    document.getElementById('deposit-ammount').value = "";
 });
